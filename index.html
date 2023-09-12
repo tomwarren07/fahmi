@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Fahmi Quaise | UI/UX Dev</title>
+    <style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #050505, #424040, #1e1616, #0c0b0b, #191919, #1e1e1e, #050505, #424040);
+    background-size: 400% 400%;
+    animation: gradient 10s linear infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slide-in 1s forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-photo {
+    margin-top: 50px;
+    margin-bottom: -30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url('faheem.jpg');
+    background-size: cover;
+    border: 5px solid #7d7878;
+    background: linear-gradient(45deg, #f50404, #0073ef);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);;
+}
+
+.profile-photo img {
+    margin: 5px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    image-rendering: pixelated;
+    image-orientation: from-image;
+}
+
+.intro {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    max-width: 90%; /* Adjust as needed for responsiveness */
+}
+
+.about-me {
+    max-width: 90%; /* Adjust as needed for responsiveness */
+    text-align: center;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Add responsive styles here for different screen sizes */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .profile-photo {
+        width: 120px;
+        margin-left: -210px;
+        height: 120px;
+        margin-bottom: -136px;
+    }
+
+    .profile-photo img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .intro {
+        margin-left: 140px;
+        margin-bottom: 100px;
+        width: 100;
+        font-size: 10px;
+    }
+    .intro h1{
+        font-size: 26px;
+    }
+    .about-me {
+        font-size: 20px;
+    }
+    .about-me h4 {
+        color: #fff;
+    }
+}
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #000;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #147efb;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <div class="profile-photo">
+            <img src="fahmi.jpg" alt="" loading="lazy">
+        </div>
+        <div class="intro">
+            <h1>Fahmi Quaise</h1>
+            <p>UI/UX Developer </p>
+        </div>
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>
+                Hello, I'm Fahmi Quaise, a passionate UI/UX developer dedicated to creating exceptional digital experiences that blend aesthetics with functionality. With a strong background in design principles and a keen eye for detail, I strive to craft user interfaces that not only look beautiful but also offer seamless usability.
+                Let's embark on this exciting technological journey together!
+            </p>
+            <h4>Click The Card & Watch</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/fahmi/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/yourwhatsappnumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const aboutMe = document.querySelector('.about-me');
+    const h2 = aboutMe.querySelector('h2');
+    const p = aboutMe.querySelector('p');
+    const h4= aboutMe.querySelector('h4');
+    const socialIcons = document.querySelector('.social-icons');
+    const a = socialIcons.querySelector('a');
+
+    const createIcon = (iconClass) => {
+        const icon = document.createElement('i');
+        icon.classList.add('fab', iconClass);
+        return icon;
+    }
+
+    aboutMe.addEventListener('click', () => {
+        if (h2.textContent === 'About Me') {
+            h2.textContent = 'What I Do';
+            p.textContent = "I specialize in crafting visually appealing interfaces that resonate with users. From wireframes to pixel-perfect designs, I pay meticulous attention to every element.";
+            h4.textContent = "What it changed !! Let's Click More";
+            socialIcons.innerHTML = ''; // Clear existing icons
+            socialIcons.appendChild(createIcon('fa-instagram'));
+        } else if (h2.textContent === 'What I Do') {
+            h2.textContent = 'My Tools';
+            p.textContent = "I am proficient in a range of design and prototyping tools, including Adobe XD, Figma, Sketch, and more. Staying up-to-date with the latest industry trends and technologies is a priority for me.";
+            h4.textContent = "Hahh!! Click One More Time!";
+            socialIcons.innerHTML = ''; // Clear existing icons
+            socialIcons.appendChild(createIcon('fa-linkedin'));
+        } else if (h2.textContent === 'My Tools') {
+            h2.textContent = "Let's Connect";
+            p.textContent = "I'm excited to connect with fellow designers, developers, and anyone interested in the world of UI/UX. Whether you have a project in mind, want to discuss design trends, or simply want to say hello, feel free to reach out!";
+            h4.textContent = "This Was The Last, FEEL FREE TO CONTACT";
+            socialIcons.innerHTML = ''; // Clear existing icons
+            socialIcons.appendChild(createIcon('fa-twitter'));
+        } else {
+            h2.textContent = 'About Me';
+            p.textContent = "Hello, I'm Fahmi Quaise, a passionate UI/UX developer dedicated to creating exceptional digital experiences that blend aesthetics with functionality. With a strong background in design principles and a keen eye for detail, I strive to craft user interfaces that not only look beautiful but also offer seamless usability. Let's embark on this exciting technological journey together!";
+            h4.textContent = "Click The Card & Watch!";
+            socialIcons.innerHTML = ''; // Clear existing icons
+            socialIcons.appendChild(createIcon('fa-github'));
+        }
+    });
+</script>
+
+</html>
